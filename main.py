@@ -130,8 +130,12 @@ if __name__ == "__main__":
 
     # AES
     aes = AESEncryption.from_nbits(256)
-  
+    # No error when added pad(MESSAGE,AES.block_size)
     encrypted_msg = aes.encrypt(pad(MESSAGE,AES.block_size))
+    
+    # Error
+    encrypted_msg = aes.encrypt(MESSAGE)
+    
     # decrypted_msg = aes.decrypt(encrypted_msg)
     # print("[AES] Successfully Decrypted:", MESSAGE == decrypted_msg)
 
